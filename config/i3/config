@@ -10,11 +10,15 @@ exec --no-startup-id dunst
 exec --no-startup-id setxkbmap -layout us,ua,ru -variant ,,winkeys -option grp:alt_shift_toggle
 exec --no-startup-id picom --config ~/.config/picom/picom.conf
 exec --no-startup-id  /home/domino/scripts/autostart.sh
+exec --no-startup-id blueman-applet &
 exec_always --no-startup-id feh --bg-fill /home/domino/Picture/wall.jpg
+
+
+# Autostart stop
 # exec --no-startup-id /home/domino/Scripts/live_wallpaper.sh
 # exec --no-startup-id ~/.screenlayout/work.sh
 # exec --no-startup-id oneko
-exec --no-startup-id polybar
+# exec --no-startup-id polybar
 
 # Application shortcuts
 bindsym $mod+c exec code
@@ -34,7 +38,7 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +25%
 bindsym XF86MonBrightnessDown exec brightnessctl set 25%-
 
 # Screen lock, audio, network
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color=000000
 exec --no-startup-id nm-applet
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -42,17 +46,30 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+# Windows color management
+colors {
+    #                      border      background  text        indicator   child_border
+    client.focused          #1E90FF     #1E90FF     #ffffff     #1E90FF     #1E90FF
+    client.unfocused        #2e3440     #2e3440     #888888     #2e3440     #2e3440
+    client.focused_inactive #3b4252     #3b4252     #aaaaaa     #3b4252     #3b4252
+    client.urgent           #bf616a     #bf616a     #ffffff     #bf616a     #bf616a
+}
+
 # Window management
 floating_modifier $mod
 tiling_drag modifier titlebar
-for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel 2
+
+# Window gaps
+gaps inner 2
+gaps outer 1
+smart_gaps on
 
 # Window controls
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Control+l exec /home/domino/Scripts/lock.sh
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -show drun -config ~/.config/rofi/config.rasi
-# bindsym $mod+d exec dmenu_run -nb '#242424' -nf '#ffffff' -sb '#3584e4' -sf '#ffffff' -fn 'monospace-8'
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
@@ -78,6 +95,9 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
+
+# Windows control stop
+# bindsym $mod+d exec dmenu_run -nb '#242424' -nf '#ffffff' -sb '#3584e4' -sf '#ffffff' -fn 'monospace-8'
 
 # Workspaces
 set $ws1 "1"
@@ -135,11 +155,6 @@ mode "resize" {
     bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "resize"
-
-# Window gaps
-gaps inner 2
-gaps outer 1
-smart_gaps on
 
 # i3bar (Adwaita-dark style)
 # bar {
