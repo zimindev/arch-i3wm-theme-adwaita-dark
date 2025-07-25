@@ -52,7 +52,7 @@ colors {
     client.focused          #1E90FF     #1E90FF     #ffffff     #1E90FF     #1E90FF
     client.unfocused        #2e3440     #2e3440     #888888     #2e3440     #2e3440
     client.focused_inactive #3b4252     #3b4252     #aaaaaa     #3b4252     #3b4252
-    client.urgent           #64bf61ff     #64bf61ff     #ffffff     #64bf61ff     #64bf61ff
+    client.urgent           #64bf61ff   #64bf61ff   #ffffff     #64bf61ff   #64bf61ff
 }
 
 # Window management
