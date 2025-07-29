@@ -31,6 +31,8 @@ bindsym $mod+g exec google-chrome-stable --app=https://github.com/zimindev/
 bindsym $mod+w exec google-chrome-stable --app=https://web.whatsapp.com/ 
 bindsym $mod+t exec google-chrome-stable --app=https://web.telegram.org/a/
 bindsym $mod+b exec /home/domino/.local/share/bootstrap-studio/Bootstrap-Studio.AppImage
+bindsym $mod+l exec --no-startup-id "setxkbmap -layout us,ua,ru -variant ,,winkeys -option grp:alt_shift_toggle"
+bindsym $mod+o exec "mousepad /home/domino/.config/i3/config"
 bindsym $mod+Print exec --no-startup-id flameshot gui
 
 # Screen light
