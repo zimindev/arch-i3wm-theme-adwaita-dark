@@ -34,6 +34,7 @@ bindsym $mod+b exec /home/domino/.local/share/bootstrap-studio/Bootstrap-Studio.
 bindsym $mod+l exec --no-startup-id "setxkbmap -layout us,ua,ru -variant ,,winkeys -option grp:alt_shift_toggle"
 bindsym $mod+o exec "mousepad /home/domino/.config/i3/config"
 bindsym $mod+Print exec --no-startup-id flameshot gui
+bindsym --release Control+l exec /home/domino/Scripts/lock.sh
 
 # Screen light
 bindsym XF86MonBrightnessUp exec brightnessctl set +25%
@@ -66,17 +67,17 @@ smart_gaps on
 
 # Window controls
 bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Control+l exec /home/domino/Scripts/lock.sh
+
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec rofi -show drun -config ~/.config/rofi/config.rasi
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+Control+d exec rofi -show drun -config ~/.config/rofi/config.rasi
+bindsym $mod+Control+j focus left
+bindsym $mod+Control+k focus down
+bindsym $mod+Control+l focus up
+bindsym $mod+Control+semicolon focus right
+bindsym $mod+Control+Left focus left
+bindsym $mod+Control+Down focus down
+bindsym $mod+Control+Up focus up
+bindsym $mod+Control+Right focus right
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
@@ -85,15 +86,15 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-bindsym $mod+h split h
-bindsym $mod+v split v
-bindsym $mod+f fullscreen toggle
-bindsym $mod+s layout stacking
+bindsym $mod+Control+h split h
+bindsym $mod+Control+v split v
+bindsym $mod+Control+f fullscreen toggle
+bindsym $mod+Control+s layout stacking
 bindsym $mod+Shift+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+Control+e layout toggle split
 bindsym $mod+Shift+space floating toggle
-bindsym $mod+space focus mode_toggle
-bindsym $mod+a focus parent
+bindsym $mod+Control+space focus mode_toggle
+bindsym $mod+Control+a focus parent
 
 # Windows control stop
 # bindsym $mod+d exec dmenu_run -nb '#242424' -nf '#ffffff' -sb '#3584e4' -sf '#ffffff' -fn 'monospace-8'
